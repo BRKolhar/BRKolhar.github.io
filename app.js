@@ -174,7 +174,6 @@ macNotesApp.controller('notesApp', function($scope, $sce, $http, $window, $q) {
     $scope.addDirectory = function() {
         $scope.newDir = {};
         $scope.newDir.name = "New directory";
-        $scope.newDir.created = new Date().toJSON().slice(0, 19).replace('T', ' ');
         $scope.newDir.updated = new Date().toJSON().slice(0, 19).replace('T', ' ');
         var req = {
             method: 'POST',
@@ -206,16 +205,18 @@ macNotesApp.controller('notesApp', function($scope, $sce, $http, $window, $q) {
 
     // Rename directories and notes
     $scope.renameDirectory = function(index = null, id = null) {
-        $('.directory' + id).addClass("ediatbleSpan");
-        $('.directory' + id).attr('contenteditable', 'true').css({
+        let row=$('.directory' + id);
+        row.addClass("ediatbleSpan");
+        row.attr('contenteditable', 'true').css({
             'border': 'black solid 1px',
             'outline': 'none'
         }).focus();
     }
     $scope.renameDirectoryDone = function(index = null, id = null) {
         console.log(index);
-        $('.directory' + id).removeClass("ediatbleSpan");
-        $('.directory' + id).attr('contenteditable', 'false').css({
+        let row=$('.directory' + id);
+        row.removeClass("ediatbleSpan");
+        row.attr('contenteditable', 'false').css({
             'border': 'none',
             'outline': 'none'
         });
@@ -248,16 +249,18 @@ macNotesApp.controller('notesApp', function($scope, $sce, $http, $window, $q) {
             });
     }
     $scope.renameNote = function(index = null, id = null) {
-        $('.note' + id).addClass("ediatbleSpan");
-        $('.note' + id).attr('contenteditable', 'true').css({
+        let row=$('.note' + id);
+        row.addClass("ediatbleSpan");
+        row.attr('contenteditable', 'true').css({
             'border': 'black solid 1px',
             'outline': 'none'
         }).focus();
     }
     $scope.renameNoteDone = function(index = null, id = null) {
         console.log(index);
-        $('.note' + id).removeClass("ediatbleSpan");
-        $('.note' + id).attr('contenteditable', 'false').css({
+        let row=$('.note' + id);
+        row.removeClass("ediatbleSpan");
+        row.attr('contenteditable', 'false').css({
             'border': 'none',
             'outline': 'none'
         });
