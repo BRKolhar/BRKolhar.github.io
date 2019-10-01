@@ -20,7 +20,7 @@
             <div class="col-sm-3">
                <h4  ng-click="addDirectory()">Folder  <span class="glyphicon glyphicon glyphicon-plus pointer float-right"></span></h4>
                <div class="list-group" id="dirList" ng-show="notesDirectory.length">
-                  <a href="javascript:;" class="list-group-item list-group-item-action directory" ng-class="{'active': d.id == currentDirectory}" ng-repeat="d in notesDirectory | orderBy:'-updated'" ng-init="$first ? getNoteList($index,d.id) : angular.noop()" >
+                  <a href="javascript:;" class="list-group-item list-group-item-action directory" ng-class="{'active': d.id == currentDirectory}" ng-repeat="d in notesDirectory | orderBy:'name'" ng-init="$first ? getNoteList($index,d.id) : angular.noop()" >
                   <p class=" " ng-click="getNoteList($index,d.id)"  >
                         <span class="directory{{d.id}} directoryName" ng-model="d.title" ng-blur="renameDirectoryDone($index,d.id)">
                               {{d.name}}
